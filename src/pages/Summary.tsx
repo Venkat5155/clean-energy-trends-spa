@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Header } from '../components/Header';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export const Summary = () => {
   const [data, setData] = useState([]);
-  const chartUrl = import.meta.env.VITE_CHART_API_URL || 'http://localhost:3000/api';
+  const chartUrl = 'http://209.38.144.184:3000/api';
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,6 +45,11 @@ export const Summary = () => {
               <Bar dataKey="Reduction" fill="#82ca9d" />
             </BarChart>
             </div>
+	     <span className='flex flex-1'>
+                <h3 className=''>Source URL: </h3>
+                <Link className="text-blue-500 underline hover:text-blue-700 focus:ring focus:ring-blue-300" to="https://www.energy.gov/policy/articles/6-charts-will-make-you-optimistic-about-americas-clean-energy-future">America’s Clean Energy Future</Link>
+              </span>
+
             <div className="prose max-w-none">
               <p>
               The bar chart compares adoption rates and cost reductions for key clean energy technologies.

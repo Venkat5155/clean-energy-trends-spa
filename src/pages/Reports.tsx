@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Header } from '../components/Header';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { Link } from 'react-router-dom';
+
 import axios from 'axios';
 
 export const Reports = () => {
   const [data, setData] = useState([]);
-  const chartUrl = import.meta.env.VITE_CHART_API_URL || 'http://localhost:3000/api';
+  const chartUrl = 'http://209.38.144.184:3000/api';
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,6 +48,11 @@ export const Reports = () => {
               <Line type="monotone" dataKey="EVs" stroke="#ff7300" />
             </LineChart>
             </div>
+	     <span className='flex flex-1'>
+                <h3 className=''>Source URL: </h3>
+                <Link className="text-blue-500 underline hover:text-blue-700 focus:ring focus:ring-blue-300" to="https://www.energy.gov/policy/articles/6-charts-will-make-you-optimistic-about-americas-clean-energy-future">America’s Clean Energy Future</Link>
+              </span>
+
             <div className="prose max-w-none">
               <p>
               The line chart tracks the progress of clean energy technologies from 2008 to 2023. 

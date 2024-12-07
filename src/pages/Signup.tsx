@@ -10,7 +10,7 @@ export const Signup = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-  const apiUrl = import.meta.env.VITE_AUTH_API_URL || 'http://localhost:3000/api/auth';
+  const apiUrl = 'http://209.38.144.184:3000/api/auth';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,11 +50,11 @@ export const Signup = () => {
           </div>
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Email address
+              User Name
             </label>
             <input
               id="email"
-              type="email"
+              type="text"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
